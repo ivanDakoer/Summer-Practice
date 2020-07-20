@@ -8,7 +8,6 @@ int main()
 
     char *str = (char *) malloc(sizeof tmp + 1);
 
-    
 
     return EXIT_SUCCESS;
 }
