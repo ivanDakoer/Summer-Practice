@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18.0)
+cmake_minimum_required(VERSION 3.15.0)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}" 
     CACHE PATH "${CMAKE_SOURCE_DIR}/build/")
