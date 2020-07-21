@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: start
-      run: md build bin && cd build && cmake .. -G "MinGW Makefiles" && make install
+      run: md build && md bin && cd build && cmake .. -G "MinGW Makefiles" && make install
