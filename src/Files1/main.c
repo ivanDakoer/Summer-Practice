@@ -2,45 +2,83 @@
 
 typedef char * string;
 
+#define MAX 100
+
 int main(int argc, char *argv[])
 {
     
     FILE *input;
-    string buf = (string) malloc(256);
-    Stack words;
+    string buf;
+    string words[MAX];
+    const char *del = " ,.:;!?\n\r\t";
 
-    // if (argc != 2)
-    // {
-    //     printf("usage: .\\File1 <file name>");
-    //     return EXIT_FAILURE;
-    // }
+    if (argc != 2)
+    {
+        printf("usage: .\\File1 <file name>");
+        return EXIT_FAILURE;
+    }
 
-    fopen_s(&input, "build/test1.txt", "rt");
+    fopen_s(&input, argv[1], "rt");
     if (input == NULL)
     {
         printf("Can't open this file.");
         return EXIT_FAILURE;
     }
 
-    while (!feof(input));
+    fseek(input, 0, SEEK_END);
+    size_t size = ftell(input);
+    buf = (string) malloc(size + 1);
+
+    fseek(input, 0, SEEK_SET);
+    size = fread(buf, 1, size, input);
+    buf[size] = 0;
+
+    fclose(input);
+
+    int count = 0;
+    char *word = strtok(buf, del);
+    while (word != NULL)
     {
-        fscanf(input, "%s", buf);
-        Push(&words, (const undefined)&buf, sizeof buf);
+        int i = 0;
+        while (i < count)
+        {
+            if (strcmp(words[i], word) == 0) break;
+            i++;
+        }
+
+        if (i == count)
+        {
+            if (i == MAX) return EXIT_FAILURE;
+
+            int len = strlen(word);
+            if (len > 0)
+            {
+                words[count] = (char *) malloc(len + 1);
+                strcpy(words[count++], word);
+            }
+            else
+            {
+                len = 0;
+            }
+        }
+
+        word = strtok(NULL, del);
     }
 
-    int maxLen = 0;
-    for (Node *word = words; word != NULL; word = word->next)
+
+    int maxLen = strlen(words[0]);
+    for (int i = 0; i < count; i++)
     {
-        maxLen = strlen((string)word) > maxLen ? strlen((string)word) : maxLen;
+        maxLen = strlen(words[i]) > maxLen ? strlen(words[i]) : maxLen;
     }
 
     for (int len = 1; len <= maxLen; len++)
     {
-        for (Node *word = words; word != NULL; word = word->next)
+        for (int i = 0; i < count; i++)
         {
-            if (strlen((string)word) == len)
+            if (strlen(words[i]) == len)
             {
-                printf("%s\n", ((string)word));
+                printf("%s\n", words[i]);
             } 
         }
     }

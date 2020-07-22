@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 cmake_minimum_required(VERSION 3.10.0)
-=======
-cmake_minimum_required(VERSION 3.15.0)
->>>>>>> 445104beaabca6101dd9e93eb004c2520ebded37
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}" 
     CACHE PATH "${CMAKE_SOURCE_DIR}/build/")
@@ -31,6 +27,9 @@ set(MY_PROJECT_EXECUTABLES
     Stack
     Files1
     Files2
+    Strings1
+    Strings2
+    Strings3
 )
 
 foreach(exe ${MY_PROJECT_EXECUTABLES})
