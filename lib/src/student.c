@@ -1,13 +1,14 @@
 #include "student.h"
 
-void PrintStuds(Student *students, int length)
+void PrintStuds(Student *students, int count)
 {
-    for (int i = 0; i < length; i++)
+    printf("%d\n", count);
+    for (int i = 0; i < count; i++)
     {
-        printf("%s %d %d %d\n", students[i].surname, 
+        printf("%s %d %d %d\n", 
+            students[i].surname, 
             students[i].birthday.day, 
             students[i].birthday.month, 
             students[i].birthday.year);
     }
-    printf("\n");
 }

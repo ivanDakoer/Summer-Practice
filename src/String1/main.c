@@ -1,26 +1,17 @@
-#include "requires.h"
+#include "mystring.h"
+
 
 int main()
 {
     char str[BUFSIZ];
-    int count = 0;
-
-
     fgets(str, sizeof str, stdin);
 
-    for (char *pchr = str; *pchr; pchr++)
-    {
-       if (*pchr == 'a') count++;
-    }
+
+    int count = countSymbol(str, 'a');
 
     printf("count of a = %d\n", count);
 
-    char *pch = strtok(str, " ");
-    while (pch != NULL)
-    {
-        printf("\n%d", strlen(pch));
-        pch = strtok(NULL, " ");
-    }
-
+    strlenWords(str);
+    
     return EXIT_SUCCESS;
 }

@@ -15,5 +15,11 @@
 #define _INT_ sizeof(int)
 #define _FLOAT_ sizeof(float)
 #define _P_INT_ sizeof(int *)
+#define _P_FLOAT_ sizeof(float *)
+
+#define undefined void *
+
+#define STR_SIZE 255
+#define NAME_SIZE 45
 
 #endif

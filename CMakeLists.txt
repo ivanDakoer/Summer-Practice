@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}" 
     CACHE PATH "${CMAKE_SOURCE_DIR}/build/")
@@ -20,7 +20,13 @@ set(MY_PROJECT_EXECUTABLES
     Votes
     String1
     UserFunction1
+    UserFunction2
     Recursion
+    Students
+    Champions
+    Stack
+    Files1
+    Files2
 )
 
 foreach(exe ${MY_PROJECT_EXECUTABLES})

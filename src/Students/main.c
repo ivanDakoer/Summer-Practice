@@ -1,37 +1,43 @@
 #include "student.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    int n = 0;
-    int i, k;
+    int n, i, k;
     Student *studs;
+    const char *fileName = "../src/Students/students.txt";
     FILE *file;
-
-    if ((file = fopen("../src/Students/students.txt", "rt")) == NULL) 
+    if ((file = fopen(fileName, "rt")) == NULL) 
     {
         printf("Cant't find file.!");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     fscanf(file, "%d\n", &n);
 
-    studs = (Student *) calloc(n, sizeof(Student));
-    if (studs == NULL) return EXIT_FAILURE;
+    printf("%d", n);
 
-    i = 0;
+    studs = (Student *) malloc(n * _TSTUDENT_);
+    if (studs == NULL) exit(EXIT_FAILURE);
+
     while (!feof(file))
     {
-        fscanf(file, "%s", studs[i].surname);
-        fscanf(file, "%d %d %d", &studs[i].birthday.day,
+        fscanf(file, "%s ", studs[i].surname);
+        fscanf(file, "%d %d %d\n", &studs[i].birthday.day,
             &studs[i].birthday.month, &studs[i].birthday.year);
         i++;
+
+        printf("%s %d %d %d\n", 
+            studs[i].surname, 
+            studs[i].birthday.day, 
+            studs[i].birthday.month, 
+            studs[i].birthday.year);
     }
 
     fclose(file);
 
     PrintStuds(studs, n);
 
-    Student *summerStuds = calloc(n, sizeof(Student));
+    Student *summerStuds = calloc(n, _TSTUDENT_);
 
     for (i = 0, k = 0; i < n; i++)
     {
@@ -60,7 +66,8 @@ int main()
         }
     }
 
-    PrintStuds(summerStuds, k);
 
+    PrintStuds(summerStuds, k);
+ 
     return EXIT_SUCCESS;
 }
