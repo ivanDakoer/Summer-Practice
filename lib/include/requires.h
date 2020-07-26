@@ -19,7 +19,7 @@
 
 #define undefined void *
 
-#define STR_SIZE 255
+#define STR_SIZE 256
 #define NAME_SIZE 45
 
 #endif

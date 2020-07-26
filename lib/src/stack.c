@@ -28,8 +28,10 @@ void Delete(Stack *head)
 {
     while ((*head)->next != NULL)
     {
-        Pop(head);
+        Node *tmp = *head;
         (*head) = (*head)->next;
+	free(tmp->data);
+	free(tmp);
     }
 
     free((*head)->data);

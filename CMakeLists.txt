@@ -9,27 +9,20 @@ project("Summer Practice"
 )
 
 set(MY_PROJECT_EXECUTABLES 
-    DoesCircleContainPoint
-    ArrayCalculate
-    ArraySort
-    MatrixCalculate1
-    MatrixCalculate2
-    MatrixCalculate3
-    MatrixCalculate4
-    MatrixCalculate5
-    Votes
-    String1
-    UserFunction1
-    UserFunction2
-    Recursion
-    Students
-    Champions
-    Stack
-    Files1
-    Files2
-    Strings1
-    Strings2
-    Strings3
+    1
+    2.1 2.2
+    3.1 3.2 3.3
+    4.2
+    5
+    6.1 6.2
+    7.1 7.2
+    8
+    9
+    10
+    11
+    12
+    13.1 13.2
+    14.1 14.2 14.3
 )
 
 foreach(exe ${MY_PROJECT_EXECUTABLES})

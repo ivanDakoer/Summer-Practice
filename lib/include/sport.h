@@ -3,7 +3,7 @@
 
 #include "requires.h"
 
-#define MAX_CHAMPIONS   3
+#define MAX_CHAMPIONS   20
 
 #define MAX_COMPETITION 5
 
